@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Вектор: Board</title>
+<style>
+/* Governs: EXPERIENCE.md Component Patterns (Карточка, Колонка), Key Flow UJ-4. Учебный макет вымышленного продукта. */
+:root{--surface:#fff;--muted:#F4F5F7;--ink:#1F2733;--ink2:#5B6675;--line:#DDE1E7;--primary:#2F5BEA;--danger:#C2342B;--warn:#A86400}
+*{box-sizing:border-box}body{margin:0;font:14px/20px Inter,system-ui,sans-serif;color:var(--ink);background:var(--muted)}
+header{background:var(--surface);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;gap:16px;align-items:center}
+h1{font-size:18px;margin:0}.sub{color:var(--ink2)}
+main{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:12px;padding:16px;overflow-x:auto}
+.col h2{font-size:14px;margin:0 0 8px;display:flex;justify-content:space-between}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:4px;padding:8px;margin-bottom:8px}
+.card.risk{border-left-color:var(--danger)}.meta{color:var(--ink2);font-size:12px}
+.over{color:var(--warn)}
+</style>
+</head>
+<body>
+<header><h1>Board: Команда Альфа</h1><span class="sub">Team Iteration 12 · 34 из 40 Points</span></header>
+<main>
+<section class="col"><h2>Открыто <span>2</span></h2>
+<div class="card"><b>Импорт Project через API</b><div class="meta">User Story · 5 Points · Project «Ядро»</div></div>
+<div class="card"><b>Фильтр по Custom Field</b><div class="meta">User Story · 3 Points · Project «Ядро»</div></div></section>
+<section class="col"><h2>В работе <span class="over">4 / 3 ⚠ WIP</span></h2>
+<div class="card risk"><b>Переходы на Board</b><div class="meta">⚑ Риск · User Story · 8 Points · Дима</div></div>
+<div class="card"><b>Подпись Webhook</b><div class="meta">User Story · 3 Points · Ольга</div></div>
+<div class="card"><b>Роли в Project</b><div class="meta">User Story · 5 Points · Павел</div></div>
+<div class="card"><b>Падает экспорт</b><div class="meta">Bug · 2 Points · Ирина</div></div></section>
+<section class="col"><h2>Ревью <span>1</span></h2>
+<div class="card"><b>Прогресс Feature</b><div class="meta">User Story · 3 Points · Анна</div></div></section>
+<section class="col"><h2>Готово <span>2</span></h2>
+<div class="card"><b>Создание Project</b><div class="meta">User Story · 3 Points</div></div>
+<div class="card"><b>Workflow по типам</b><div class="meta">User Story · 2 Points</div></div></section>
+</main>
+</body>
+</html>

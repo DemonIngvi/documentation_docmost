@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Вектор: AI-декомпозиция</title>
+<style>
+/* Governs: EXPERIENCE.md Component Patterns (Блок предложения ИИ), Key Flow UJ-1. Учебный макет вымышленного продукта. */
+:root{--surface:#fff;--muted:#F4F5F7;--ink:#1F2733;--ink2:#5B6675;--line:#DDE1E7;--primary:#2F5BEA;--ai:#6B3FD4;--aisurf:#F3EFFC}
+*{box-sizing:border-box}body{margin:0;font:14px/20px Inter,system-ui,sans-serif;color:var(--ink);background:var(--muted);padding:16px}
+.panel{max-width:640px;margin:auto;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+h1{font-size:18px;margin:0 0 4px}.sub{color:var(--ink2);margin-bottom:12px}
+.ai{background:var(--aisurf);border-radius:8px;padding:12px}
+.tag{color:var(--ai);font-weight:600}
+.draft{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px;margin-top:8px}
+ul{margin:4px 0 8px;padding-left:20px;color:var(--ink2)}
+button{font:inherit;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+button.main{background:var(--primary);border-color:var(--primary);color:#fff}
+.row{display:flex;gap:8px;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="panel">
+<h1>Feature: Импорт Project через API</h1>
+<div class="sub">Состояние: Анализ · Release 2.3</div>
+<div class="ai">
+<div class="tag">✦ Предложение ИИ. Проверьте перед применением.</div>
+<div class="draft"><b>Загрузка Work Item пакетом</b>
+<ul><li>Дан файл на 500 элементов, импорт завершается отчётом</li><li>Ошибочные строки не прерывают импорт</li></ul>
+<button>Изменить</button> <button>Отклонить</button></div>
+<div class="draft"><b>Сопоставление State при импорте</b>
+<ul><li>Неизвестный State предлагается сопоставить вручную</li></ul>
+<button>Изменить</button> <button>Отклонить</button></div>
+<div class="row"><button class="main">Применить выбранные (2)</button><button>Отклонить все</button></div>
+</div>
+</div>
+</body>
+</html>
