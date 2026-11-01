@@ -1,6 +1,6 @@
 ok: true
 blockers: 0
-warnings: 12
+warnings: 13
 findings:
 - gate: G08
   level: warning
@@ -46,6 +46,10 @@ findings:
   level: warning
   where: '5.5: AI-фильтр'
   problem: 'Мало классов: S1, S3'
+- gate: G11
+  level: warning
+  where: project-final.yaml
+  problem: 'Нет подписи человека, не разобрано находок: 8'
 - gate: G02
   level: warning
   where: миграции
