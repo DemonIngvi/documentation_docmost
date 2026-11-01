@@ -68,3 +68,10 @@
   tokens: 5017
   estimate: 7700
   ratio: 0.65
+- date: '2026-11-01'
+  gate: G11
+  target: project
+  model: sonnet
+  tokens: 21888
+  estimate: 20000
+  ratio: 1.09

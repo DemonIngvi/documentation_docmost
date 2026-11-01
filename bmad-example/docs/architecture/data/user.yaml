@@ -13,3 +13,5 @@ attributes:
   type: string
 - name: is_active
   type: boolean
+- name: is_admin
+  type: boolean

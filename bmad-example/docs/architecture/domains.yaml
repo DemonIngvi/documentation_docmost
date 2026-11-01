@@ -1,0 +1,11 @@
+domains:
+- {domain: аутентификация, status: decided, rule: AD-12}
+- {domain: права, status: decided, rule: AD-7}
+- {domain: данные, status: decided, rule: AD-2}
+- {domain: ошибки, status: decided, rule: Ошибки API}
+- {domain: логи, status: decided, rule: Логи}
+- {domain: настройки, status: decided, rule: Настройки}
+- {domain: развёртывание, status: decided, rule: AD-1}
+- {domain: резервное копирование, status: deferred, note: Определяется при установке у пилотного заказчика}
+- {domain: наблюдаемость, status: deferred, note: Определяется при установке у пилотного заказчика}
+- {domain: миграции, status: question, note: Нет решения об инструменте и порядке миграций}

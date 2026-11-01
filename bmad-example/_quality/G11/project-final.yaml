@@ -1,0 +1,77 @@
+gate: G11
+target: project
+input_hash: ae3f479ecdf937f3a54c2b6fa43f1992155bcafc70a896b069ded6a9485f34d3
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 21888
+estimate: 20000
+cost_usd: 0.110316
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: '| FR-23 | 1.1 |'
+  problem: FR-23 отнесён к истории 1.1, но критериев приёмки для него почти нет. Проверяется
+    только ответ 401. Не описаны создание и отключение пользователей, выпуск API-токенов
+    (показ один раз, хранение хеша), сессия 12 часов, потеря сессий отключённым пользователем
+    и признак `is_admin`, разрешающий создавать Project. Разработчику придётся самому
+    решать, как это реализовать и принимать.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Первая история создаёт каркас проекта и `docker-compose.yml`.
+  problem: Первая история 1.1 посвящена Project, Team и Role. Каркас приложения, модульная
+    структура, линтер границ из AD-1 и Docker Compose в ней не упомянуты и в критериях
+    приёмки не проверяются. Непонятно, где и кем это делается, а все остальные истории
+    от этого зависят.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '**When** Administrator входит и создаёт Project с Process'
+  problem: Нет истории или критерия, которые создают Process и задают для него Workflow
+    по умолчанию. Request в 4.1 должен получать State «Закрыт», но в настраиваемом
+    Workflow такого State может не быть. Начальные состояния, набор типов Work Item
+    в новом Process и переходы по умолчанию остаются незаписанным решением.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '**Given** колонка с превышенным WIP-лимитом'
+  problem: Ни одна история не позволяет задать `wip_limit` у State или `capacity`
+    у Iteration и Team Iteration. Это нужно для историй 2.1 и 3.3. В Story 1.3 нет
+    WIP-лимита, в 3.1 и 3.2 нет ёмкости. Не определено, где и кто их задаёт и как
+    они проверяются.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '**Then** даты Feature меняются'
+  problem: В моделях нет полей дат Work Item, которые двигает Roadmap. Не определено,
+    как карточка попадает на шкалу, если дат нет, какие поля меняются (начало, конец,
+    обе), как масштабируется шкала и какие типы Work Item показываются. Эти решения
+    придётся придумать.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '**Given** несколько правил'
+  problem: 'Формат правила Visual Encoding не определён: язык условий (тот же `FilterSpec`
+    или другой), набор цветов и значков, область действия (личное или общее), порядок
+    правил и способ его менять. Критерий проверяет только «первое подходящее».'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '**Then** показано до пяти элементов, доступных пользователю'
+  problem: 'Нет работы по инфраструктуре поиска похожих: хранилище векторов в `pgvector`,
+    модель эмбеддингов в Model Connection, параметр `ai.embedding.dimension`, индексация
+    новых и изменённых Work Item, пересчёт при смене модели (AD-11). Нет также очереди,
+    таблиц `ai_suggestion` и `ai_journal`, источника «версии промпта» и самих промптов.
+    Ни одна из историй 5.1–5.5 этого не покрывает.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '**Then** применение можно отменить'
+  problem: 'Семантика отмены не определена: удаляются ли созданные User Story, что
+    происходит, если их уже изменили или связали, как запись отражается в AI Journal
+    и AI Suggestion, что случается после истечения 30 секунд. Тестируемого поведения
+    нет.'
+  decision: pending
+  decided_by: pending
+dropped_without_quote: []

@@ -7,6 +7,26 @@ space:
 tree:
   - title: Как читать этот пример
     source: docs/index.md
+  - title: Обзор системы
+    children:
+      - title: Панель готовности
+        view: readiness
+      - title: "C1: система и окружение"
+        view: c1
+      - title: "C2: контейнеры"
+        view: c2
+      - title: "C3: блоки"
+        view: c3
+      - title: Как работает
+        view: how
+      - title: Карточки блоков
+        view: cards
+      - title: Данные
+        view: data
+      - title: Реестры
+        view: registers
+      - title: Матрица покрытия
+        view: coverage
   - title: 1. Анализ
     children:
       - title: Итог брейншторма

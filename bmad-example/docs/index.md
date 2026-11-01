@@ -80,13 +80,14 @@ graph LR
   FR --> SM[SM: метрика]
 ```
 
-Итог проверки скриптом: 22 FR, 20 историй, 4 UJ, 11 AD, ошибок трассировки нет. Линтер архитектуры замечаний не нашёл.
+Итог проверки скриптом: 23 FR, 20 историй, 4 UJ, 12 AD, ошибок трассировки нет. Линтер архитектуры замечаний не нашёл.
 
 ## Где лежат файлы
 
 | Что | Путь на диске |
 | --- | --- |
-| Установленный BMAD | `D:\documentation\bmad-example\_bmad` |
-| Навыки для Claude Code | `D:\documentation\bmad-example\.claude\skills` |
-| Все документы | `D:\documentation\bmad-example\_bmad-output` |
+| Установленный BMAD | `bmad-example\_bmad`, в git не входит |
+| Навыки для Claude Code | `bmad-example\.claude\skills`, в git не входит |
+| Все документы | `bmad-example\_bmad-output` |
+| Архитектура и модель системы | `bmad-example\docs\architecture` |
 | Макеты экранов | `_bmad-output\planning-artifacts\ux-designs\ux-bmad-example-2026-11-01\mockups` |
