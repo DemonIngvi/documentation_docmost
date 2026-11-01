@@ -1,0 +1,70 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: 79f9c079ab414bc7e8ba90bb747449aaab1c310cfd21ae845cbc34258a13884d
+run_by: run_gate.py sonnet
+author: unknown
+verdict: concerns
+tokens: 4991
+estimate: 7700
+cost_usd: 0.014186400000000004
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: 'Нет модели прав: какие именно действия разрешены каждой из четырёх Role
+    (Administrator, Product Owner, Developer, Observer). Указано лишь, что Observer
+    не может менять. Разработчик сам придумает матрицу прав.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Создание Project | Administrator, Process выбран | Project создан | N/A
+  problem: 'Process в истории не создаётся и не описан его источник: где берутся Process
+    для выбора, есть ли предустановленные. Модуль process зависит от access, а не
+    наоборот, непонятно как access проверяет существование Process.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '| Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404
+    |'
+  problem: 'Противоречие с AD-7 и Boundaries: нехватка Role даёт 403, а в матрице
+    для пользователя без Role указан 404. Разработчик сам решает, что считать «чужим
+    Project», а что «нехваткой Role». Кроме того, Work Item и модуль work ещё не существуют,
+    непонятно, на чём проверять чтение.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '`apps/api/src/modules/access/` -- Project, Team, Role, `ProjectScope`'
+  problem: 'Не определены операции управления: кто и как назначает Role пользователям,
+    добавляет в Team, как связаны Team и Project (Team входит в Project? Role выдаётся
+    пользователю или Team?), удаление и архивирование Project, создание пользователей.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '`deploy/docker-compose.yml` -- все службы'
+  problem: Состав служб, схема миграций БД, порты, переменные окружения, способ раздачи
+    фронтенда и первичного запуска не определены. Критерий «приложение открывается»
+    не уточняет, что именно открывается (React-каркас с чем?).
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '| Нет Process | Запрос без Process | Project не создан | 422 с причиной
+    |'
+  problem: 'Нет других правил валидации Project: уникальность и формат имени/ключа,
+    обязательные поля, поведение при дубликатах. Формат тела ошибки частично задан
+    RFC 9457, но коды `code` не определены.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Каждый запрос чтения получает `ProjectScope` (AD-7).
+  problem: Не определено, как строится `ProjectScope` (из токена, пути, заголовка),
+    и как обрабатываются запросы чтения, не привязанные к одному Project (список Project
+    пользователя, пользователи, Team), в том числе пагинация этих списков.
+  decision: pending
+  decided_by: pending
+dropped_without_quote:
+- level: blocker
+  quote: Администратор может войти.
+  problem: Способ аутентификации не определён (логин/пароль, токены, сессии), единый
+    вход исключён. Не сказано, откуда берётся первый Administrator (seed, переменные
+    окружения, мастер установки), хранение паролей и срок сессии.

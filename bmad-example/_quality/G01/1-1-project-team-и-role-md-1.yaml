@@ -1,0 +1,70 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: 6c5406bbfd6df12c85ae8f45558eb566cc24c7a8e016a9f4e82584593e11cf9c
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 7510
+estimate: 7700
+cost_usd: 0.0366434
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: 'Role** — набор прав пользователя в Project: Administrator, Product Owner,
+    Developer, Observer.'
+  problem: 'Нет матрицы прав: какие действия разрешены каждой Role (создание Project,
+    управление Team, чтение, изменение Work Item). Без неё нельзя реализовать правила
+    Role (AD-7) и разделить 403 и допустимое действие.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Administrator может войти.
+  problem: 'Нет решения по аутентификации: способ входа (логин/пароль, токены, сессии),
+    хранение паролей, создание первого Administrator на чистом сервере. Единый вход
+    через каталоги исключён, альтернативы не названы.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Project создан
+  problem: Не определены поля Project (имя, ключ, описание), правила уникальности,
+    а также как Project связан с Program. Модель данных access (Project, Team, Role,
+    членство) и схема таблиц не описаны.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404
+  problem: Модуль work, Work Item и Process в этой истории не реализованы, но строка
+    матрицы и AD-7 требуют читать Work Item. Неясно, что реализуется как заглушка,
+    и как `ProjectScope` получается (из URL, токена, членства) и кто его строит.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Administrator, Process выбран
+  problem: Process принадлежит модулю process (зависимость process → access), которого
+    в истории нет. Откуда берётся список Process, существует ли хотя бы дефолтный
+    Process и как проверять его существование при создании Project, не решено.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: управление Project, Team и Role
+  problem: 'Не определён набор операций и REST-контракт: эндпоинты, изменение и удаление
+    Project, добавление пользователей в Team, назначение Role (пользователю или Team,
+    на Project), права на сами эти операции. Управление пользователями (создание,
+    приглашение) вообще не упомянуто.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Запрос без Process | Project не создан | 422 с причиной
+  problem: Формат тела ошибки и значение `code` не заданы (в архитектуре только RFC
+    9457 в общем виде). Валидация других входных данных и коды для них не описаны.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '- [x] `deploy/docker-compose.yml` -- описать службы -- NFR-4'
+  problem: 'Каркас: состав служб задан, но миграции БД (запуск при старте), seed начальных
+    данных, переменные окружения, ключ шифрования, CORS и конфигурация web не определены.
+    Приёмка требует «приложение открывается», но что показывает web после входа, не
+    сказано.'
+  decision: pending
+  decided_by: pending
+dropped_without_quote: []

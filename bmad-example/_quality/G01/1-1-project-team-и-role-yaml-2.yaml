@@ -1,0 +1,70 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: a5e1365b3981a322d21c6c8481441e6bb303bd92bb2544e2465bf8f2b3de0958
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 4698
+estimate: 7700
+cost_usd: 0.012617200000000002
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Administrator может войти.
+  problem: Механизм аутентификации не определён (логин/пароль, токены, сессии), единый
+    вход исключён. Не сказано, как создаётся первый Administrator (seed, переменная
+    окружения, мастер установки).
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: Нет стека, фреймворка, СУБД, менеджера миграций, структуры монорепозитория.
+    В пакете только пути и docker compose, а выбор технологий не указан и не отсылает
+    к документу.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: 'Role** — набор прав пользователя в Project: Administrator, Product Owner,
+    Developer, Observer.'
+  problem: 'Нет матрицы прав: что может каждая Role (создание Project, управление
+    Team, изменение Work Item). Известно только про Observer. Правила Role в domain
+    придумываются с нуля.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404
+  problem: 'Противоречие: Boundaries и AD-7 говорят, что нехватка Role даёт 403, а
+    матрица даёт 404 для пользователя без Role. Различие между «чужой Project» и «нет
+    Role» не определено. Также неясно, как читать Work Item, когда модуля work ещё
+    нет.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Team** — группа пользователей. Пользователь может входить в несколько Team.
+  problem: 'Не определена связь Team с Project и Role: назначается ли Role пользователю
+    или Team, может ли Team входить в несколько Project, как Role наследуется. Нет
+    операций над Team: создание, состав, удаление.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Administrator, Process выбран
+  problem: 'Не описано, откуда берётся Process: модуль `process` ещё не реализован,
+    а `access` зависит от него в обратную сторону. Неясно, есть ли предустановленные
+    Process и как проверять существование.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Нет Process | Запрос без Process | Project не создан | 422 с причиной
+  problem: 'Формат причины не определён: код `code` и структура Problem Details (RFC
+    9457) не заданы. Нет правил валидации Project: уникальность имени, длина, ключ.
+    Не определены операции изменения, архивации и удаления Project.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: описать службы -- NFR-4
+  problem: Состав служб в compose, конфигурация через переменные окружения, шифрование
+    ключей и список обязательных переменных не заданы. Текст NFR-4 в пакете отсутствует.
+  decision: pending
+  decided_by: pending
+dropped_without_quote: []

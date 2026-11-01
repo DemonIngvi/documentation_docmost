@@ -1,0 +1,26 @@
+header:
+- Capability / Area
+- Lives in
+- Governed by
+rows:
+- capability: FR-1, FR-2
+  lives_in: '`access`'
+  governed_by: AD-7
+- capability: FR-3, FR-4, FR-5
+  lives_in: '`work`'
+  governed_by: AD-2, AD-3
+- capability: FR-6, FR-7
+  lives_in: '`process`'
+  governed_by: AD-3
+- capability: FR-8, FR-9, FR-10
+  lives_in: '`planning`'
+  governed_by: AD-1
+- capability: FR-11 — FR-15
+  lives_in: '`views`'
+  governed_by: AD-8, AD-9
+- capability: FR-16 — FR-20
+  lives_in: '`ai`'
+  governed_by: AD-4, AD-5, AD-6, AD-9, AD-10, AD-11
+- capability: FR-21, FR-22
+  lives_in: '`integrations`'
+  governed_by: AD-3, AD-8

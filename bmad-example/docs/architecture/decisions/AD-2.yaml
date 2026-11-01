@@ -1,0 +1,9 @@
+id: AD-2
+title: Единая таблица Work Item
+binds:
+- FR-3
+- FR-4
+- FR-5
+prevents: разные модели и логика связей для каждого типа
+rule: все типы хранятся в `work_item` с полем `type` и `parent_id`. Правила иерархии проверяет один `HierarchyPolicy`
+  в домене `work`.

@@ -1,0 +1,70 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: a5e1365b3981a322d21c6c8481441e6bb303bd92bb2544e2465bf8f2b3de0958
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 4787
+estimate: 7700
+cost_usd: 0.0257833
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Пользователь без Role читает Work Item | Данные скрыты | 404
+  problem: 'Противоречие с AD-7 и Boundaries: «нехватка Role даёт 403», а строка матрицы
+    требует 404 при отсутствии Role. Не определено, когда 404, а когда 403 (нет Role
+    в Project vs чужой Project), разработчик должен выбрать сам.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: Не указаны технологический стек, БД, язык и фреймворк (есть только pnpm,
+    TS-подразумеваемо, docker compose). Состав служб в docker-compose не определён
+    («все службы»), как и версии/конфигурация. Разработчик сам выбирает стек и состав
+    служб.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: 'Не описаны операции и API: какие эндпоинты, поля Project/Team/Role, кто
+    может создавать Team, назначать Role, добавлять пользователей в Team, как соотносятся
+    Team и Role (Role выдаётся пользователю или Team), как Project связан с Team.
+    FR-1 и FR-2 в пакете не приведены.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Запрос без Process | Project не создан | 422 с причиной
+  problem: Не определены список доступных Process, откуда они берутся в этой истории
+    (модуль process ещё не создан, зависимость process -> access), и можно ли менять
+    Process позже. Нужна заглушка/seed.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Role Observer | Изменение отклонено | 403
+  problem: 'Не определена матрица прав для Administrator, Product Owner, Developer:
+    что каждая Role может делать с Project, Team, Role и Work Item. Описан лишь Observer.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Чужой Project даёт 404
+  problem: Не определено, как строится ProjectScope (из токена, пути или заголовка),
+    как пользователь с несколькими Project выбирает текущий и как обрабатываются запросы,
+    не привязанные к одному Project (список своих Project).
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: 422 с причиной
+  problem: Формат ошибки частично задан (RFC 9457, стабильное поле `code`), но конкретные
+    значения `code` и перечень причин не определены; также не заданы правила валидации
+    (уникальность имени Project, длина, ключ).
+  decision: pending
+  decided_by: pending
+dropped_without_quote:
+- level: blocker
+  quote: Администратор, Process выбран
+  problem: 'Не определён способ появления первого Administrator и его аутентификации:
+    нет решения о механизме входа (логин/пароль, сессии/токены, хранение паролей),
+    создании начального пользователя и модели User. Критерий «Administrator может
+    войти» невыполним без этого.'

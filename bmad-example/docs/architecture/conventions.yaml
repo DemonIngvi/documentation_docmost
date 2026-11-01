@@ -1,0 +1,18 @@
+header:
+- Concern
+- Convention
+rows:
+- concern: Именование
+  convention: Таблицы `snake_case` в единственном числе, термины только из Глоссария
+- concern: Идентификаторы
+  convention: UUIDv7
+- concern: Даты
+  convention: UTC, ISO 8601
+- concern: Ошибки API
+  convention: RFC 9457 Problem Details, поле `code` стабильно
+- concern: Списки API
+  convention: Курсорная пагинация
+- concern: Логи
+  convention: JSON, текст Work Item и промпты в логи не пишутся
+- concern: Настройки
+  convention: Через переменные окружения, ключи шифруются в БД

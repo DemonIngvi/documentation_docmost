@@ -1,0 +1,108 @@
+ok: false
+blockers: 8
+warnings: 18
+findings:
+- gate: G07
+  level: blocker
+  where: NFR-1
+  problem: Нет ни в одной истории
+- gate: G07
+  level: warning
+  where: NFR-1
+  problem: Нет сценария качества с измеримым откликом
+- gate: G07
+  level: blocker
+  where: NFR-2
+  problem: Нет ни в одной истории
+- gate: G07
+  level: warning
+  where: NFR-2
+  problem: Нет сценария качества с измеримым откликом
+- gate: G07
+  level: blocker
+  where: NFR-3
+  problem: Нет ни в одной истории
+- gate: G07
+  level: warning
+  where: NFR-3
+  problem: Нет сценария качества с измеримым откликом
+- gate: G07
+  level: blocker
+  where: NFR-4
+  problem: Нет ни в одной истории
+- gate: G07
+  level: warning
+  where: NFR-4
+  problem: Нет сценария качества с измеримым откликом
+- gate: G07
+  level: blocker
+  where: NFR-5
+  problem: Нет ни в одной истории
+- gate: G07
+  level: warning
+  where: NFR-5
+  problem: Нет сценария качества с измеримым откликом
+- gate: G07
+  level: blocker
+  where: NFR-6
+  problem: Нет ни в одной истории
+- gate: G07
+  level: warning
+  where: NFR-6
+  problem: Нет сценария качества с измеримым откликом
+- gate: G07
+  level: blocker
+  where: NFR-7
+  problem: Нет ни в одной истории
+- gate: G07
+  level: warning
+  where: NFR-7
+  problem: Нет сценария качества с измеримым откликом
+- gate: G08
+  level: warning
+  where: '1.2: Иерархия Work Item и Bug'
+  problem: 'Размытые слова: понятной'
+- gate: G08
+  level: warning
+  where: '2.2: List и фильтры'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '2.3: Visual Encoding'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '2.4: Roadmap'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '2.5: Dashboard'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '3.2: Team Iteration'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '4.1: Request'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '4.2: Custom Field'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '5.1: Model Connection'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '5.2: AI Journal'
+  problem: Нет негативного сценария
+- gate: G08
+  level: warning
+  where: '5.4: AI-поиск дублей'
+  problem: Нет негативного сценария
+- gate: G12
+  level: blocker
+  where: prd.md
+  problem: Допущений в тексте 0, в индексе 4

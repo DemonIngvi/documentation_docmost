@@ -1,40 +1,21 @@
 # documentation_docmost
 
-Рабочая папка: BMAD Method, Docmost и полный пример документации на вымышленном AI-трекере «Вектор».
+Полный пример документации на вымышленном AI-трекере «Вектор». Он устроен по образцу модели Targetprocess, но с ним не связан. Документы созданы по методу BMad Method.
+
+Что здесь настоящее, а что смоделировано, написано на странице `bmad-example/docs/index.md`.
 
 | Папка | Что внутри |
 | --- | --- |
-| `bmad-example/` | Проект с BMAD 6.12.4 и всеми документами примера (`_bmad-output/`) |
-| `docmost/` | Docmost 0.97.0 в Docker внутри WSL |
-| `tools/` | Скрипты проверки и публикации |
+| `bmad-example/_bmad-output/` | Документы проекта |
+| `bmad-example/docs/architecture/` | Архитектура в YAML, источник для Spine |
+| `bmad-example/_quality/` | Результаты проверок и журнал расхода токенов |
 
-## Docmost
+Как устроены репозитории и как создать такой проект, описано в [doc-rules](https://github.com/DemonIngvi/doc-rules/blob/main/docs/new-project.md).
 
-Запуск: `D:\documentation\docmost\start-docmost.ps1`. Откроется <http://localhost:3100>, данные для входа лежат в `docmost/admin-credentials.txt`.
-
-Остановка: `D:\documentation\docmost\stop-docmost.ps1`. Данные сохраняются.
-
-После перезагрузки компьютера Docmost нужно запустить скриптом: WSL не стартует сам, а без удерживающего процесса гасит виртуальную машину при простое.
-
-База и файлы хранятся в томах Docker внутри Ubuntu в WSL, а не на диске D. Файлы `docmost/.env` и `docmost/admin-credentials.txt` содержат секреты, их нельзя публиковать.
-
-## BMAD
-
-Папки `bmad-example/_bmad` и `bmad-example/.claude` в репозиторий не входят, их создаёт установка. После клонирования выполните команду ниже в `bmad-example`. Для запуска Docmost скопируйте `docmost/.env.example` в `docmost/.env` и задайте свои секреты.
-
-Откройте `D:\documentation\bmad-example` в Claude Code и вызовите `/bmad-help`: навык подскажет следующий шаг. Для нового проекта установите BMAD в его папку:
+## Публикация в Docmost
 
 ```
-npx bmad-method@6.12.4 install --directory . --modules bmm --tools claude-code --communication-language Russian --document-output-language Russian --yes
+uv run ../doc-publisher/tools/publish.py --root bmad-example
 ```
 
-## Обновление примера в Docmost
-
-После правки документов:
-
-```
-python D:\documentation\tools\check_traceability.py
-python D:\documentation\tools\publish_to_docmost.py
-```
-
-Публикация заменяет все страницы пространства «Вектор: пример BMAD», поэтому правки, сделанные прямо в Docmost, будут потеряны. Источник правды это файлы на диске.
+Публикация заменяет страницы пространства, поэтому источник правды это файлы, а не Docmost.

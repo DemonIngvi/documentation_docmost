@@ -1,0 +1,76 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: 79f9c079ab414bc7e8ba90bb747449aaab1c310cfd21ae845cbc34258a13884d
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 4997
+estimate: 7700
+cost_usd: 0.0269669
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404
+  problem: 'Противоречие: Boundaries и AD-7 говорят, что нехватка Role даёт 403, а
+    чужой Project даёт 404. Строка матрицы требует 404 для пользователя без Role.
+    Разработчик должен сам решить, считать ли пользователя без Role посторонним (404)
+    или недостаточно прав (403).'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: 'Не определён состав каркаса: структура монорепозитория, пакеты, конфигурация
+    сборки и CI с линтером AD-1. Не описаны API-эндпоинты (пути, DTO, коды), модель
+    данных и таблицы для Project, Team, Role. Разработчик придумывает контракт REST
+    и схему БД сам.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Given чистый сервер, when выполнен `docker compose up`, then приложение открывается
+    и Administrator может войти.
+  problem: 'Не описана аутентификация: как Administrator входит (логин/пароль, токен,
+    сессия), откуда берётся первый Administrator (seed, переменные окружения), как
+    хранятся пароли. Единый вход через внешние каталоги исключён, а замены нет.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '| Создание Project | Administrator, Process выбран | Project создан | N/A
+    |'
+  problem: Process в истории не создаётся и не описан, а модуль `process` зависит
+    от `access`. Неясно, откуда берётся Process при чистой установке (предустановленный,
+    заглушка, отдельная история) и как access проверяет его существование, не нарушая
+    граф зависимостей AD-1.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: управление Project, Team и Role
+  problem: 'Не определены правила управления: кто может создавать Team и назначать
+    Role, назначается ли Role на пользователя в Project напрямую или через Team, что
+    при нескольких Role (через разные Team), можно ли удалять Project, Team, Role
+    и снимать последнего Administrator.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Observer меняет | Role Observer | Изменение отклонено | 403
+  problem: 'Матрица прав для Administrator, Product Owner и Developer не задана: какие
+    действия разрешены каждой Role (создание Project, управление Team, изменение Work
+    Item). Решать разработчику.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '| Нет Process | Запрос без Process | Project не создан | 422 с причиной
+    |'
+  problem: 'Формат тела ошибки и стабильные значения `code` не заданы (RFC 9457 лишь
+    общий). Не указаны и другие валидации: уникальность имени Project, длина, допустимые
+    символы.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '`deploy/docker-compose.yml` -- все службы'
+  problem: Состав служб (api, web, PostgreSQL, Redis, воркер BullMQ), порты, тома,
+    миграции при старте, переменные окружения и секреты не определены. Сам NFR-4 в
+    пакете не раскрыт.
+  decision: pending
+  decided_by: pending
+dropped_without_quote: []

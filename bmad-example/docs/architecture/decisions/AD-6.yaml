@@ -1,0 +1,7 @@
+id: AD-6
+title: Неизменяемый AI Journal
+binds:
+- FR-17
+- NFR-7
+prevents: подмену истории решений
+rule: роль приложения в БД имеет на `ai_journal` только `INSERT` и `SELECT`.

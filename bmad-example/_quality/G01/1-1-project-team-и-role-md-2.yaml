@@ -1,0 +1,76 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: 6c5406bbfd6df12c85ae8f45558eb566cc24c7a8e016a9f4e82584593e11cf9c
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 7763
+estimate: 7700
+cost_usd: 0.0161129
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: 'Не определено, какие операции управления входят в историю: нет списка
+    действий (создать/изменить/удалить Project, Team, Role), нет API-контракта (маршруты,
+    поля, форматы запросов и ответов). Разработчик сам придумывает поверхность REST.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: 'Role** — набор прав пользователя в Project: Administrator, Product Owner,
+    Developer, Observer.'
+  problem: 'Нет матрицы прав: какие действия разрешены каждой Role. Известно только,
+    что Observer не меняет. Правила Role в `domain/` разработчик должен придумать
+    сам. Не определено, является ли Administrator глобальной ролью или ролью в Project,
+    и кто может назначать Role.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '| Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404
+    |'
+  problem: 'Противоречие: Boundaries и AD-7 говорят, что нехватка Role даёт 403, а
+    чужой Project даёт 404. Строка матрицы даёт 404 для пользователя без Role. Не
+    определено, считается ли отсутствие Role «чужим Project» или нехваткой Role. Нужно
+    выбрать код. Плюс Work Item ещё не существует в этой истории (модуль `work` не
+    создан), непонятно, что именно читать в тесте.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Каждый запрос чтения получает `ProjectScope` (AD-7).
+  problem: 'Не определено, что такое `ProjectScope` (поля, как строится из пользователя
+    и запроса, где живёт: middleware/guard/декоратор). Также не определена модель
+    связи пользователь-Team-Role: Role назначается пользователю или Team, как совмещаются
+    Role нескольких Team.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '| Нет Process | Запрос без Process | Project не создан | 422 с причиной
+    |'
+  problem: Модуль `process` не входит в историю, но создание Project требует существующего
+    Process. Не сказано, откуда берутся Process для выбора (seed, заглушка) и как
+    проверяется существование. Формат «причины» 422 (поле `code`) не задан.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '`deploy/docker-compose.yml` -- все службы'
+  problem: 'Объём каркаса не ограничен: непонятно, нужны ли в этой истории заготовки
+    `worker`, `web` (экран входа), миграции БД, конфигурация окружений dev/staging/production
+    и переменные окружения. Acceptance «приложение открывается» не уточняет, что именно
+    открывается (UI или API).'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Покрывает FR-1 и FR-2.
+  problem: Тексты FR-1 и FR-2 отсутствуют в пакете, поэтому правила (например, ограничения
+    на удаление Project или Team, уникальность имён, пользователь в нескольких Team)
+    разработчик вынужден домысливать.
+  decision: pending
+  decided_by: pending
+dropped_without_quote:
+- level: blocker
+  quote: Администратор может войти.
+  problem: Acceptance требует, чтобы Administrator мог войти, но механизм аутентификации
+    (логин/пароль, сессии/JWT, хранение паролей) нигде не определён. Единый вход через
+    каталоги исключён, а собственная схема не описана. Не сказано, как создаётся первый
+    Administrator (seed, переменные окружения).

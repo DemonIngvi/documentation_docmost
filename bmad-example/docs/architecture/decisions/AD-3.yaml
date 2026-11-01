@@ -1,0 +1,9 @@
+id: AD-3
+title: Единый источник правил Workflow
+binds:
+- FR-6
+- FR-11
+- FR-21
+prevents: расхождение правил между Board, API и импортом
+rule: смена State выполняется только командой `TransitionWorkItem`, она проверяет Workflow и Role. Прямая
+  запись в поле `state_id` запрещена.

@@ -1,0 +1,73 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: a5e1365b3981a322d21c6c8481441e6bb303bd92bb2544e2465bf8f2b3de0958
+run_by: run_gate.py sonnet
+author: unknown
+verdict: concerns
+tokens: 4859
+estimate: 7700
+cost_usd: 0.014261700000000002
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: Не указаны стек, язык, фреймворк, БД и ORM для каркаса (есть только pnpm,
+    docker compose и NestJS-подобные пути без решения). Разработчик сам выберет технологии
+    и структуру каркаса; ссылка на архитектуру даёт лишь парадигму, но не технологии.
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Administrator может войти.
+  problem: 'Не определён механизм аутентификации: логин/пароль, токены, сессии, хранение
+    паролей. Единый вход через внешние каталоги исключён, но чем заменён, не сказано.
+    Не описано и как создаётся первый Administrator (seed, переменные окружения, мастер
+    установки).'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Пользователь без Role читает Work Item | Данные скрыты | 404
+  problem: 'Противоречие с AD-7 и Boundaries: «нехватка Role даёт 403», а в матрице
+    пользователь без Role получает 404. Не определено, чем «нет Role» (404) отличается
+    от «нехватка Role» (403) — когда Project чужой, а когда роль недостаточна.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: 'Role** — набор прав пользователя в Project: Administrator, Product Owner,
+    Developer, Observer.'
+  problem: 'Не определена матрица прав: что именно может каждая Role (создавать Project,
+    управлять Team, назначать Role, менять Work Item). Известно только про Observer
+    (не меняет) и Administrator (создаёт Project). Без этого правила Role в domain
+    не написать.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: управление Project, Team и Role
+  problem: 'Не заданы операции и API: какие эндпоинты, поля Project/Team, как Team
+    связана с Project и Role (Role выдаётся пользователю или Team?), кто и как назначает
+    Role, как пользователь добавляется в Team, есть ли удаление/архивация. Модель
+    данных и контракт REST придётся придумывать.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Нет Process | Запрос без Process | Project не создан | 422 с причиной
+  problem: Не определено, откуда берутся Process (в истории нет их создания), существует
+    ли встроенный по умолчанию Process, и как валидируется несуществующий Process
+    id. Формат причины и значение `code` не заданы (RFC 9457 есть, но коды не перечислены).
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Каждый запрос чтения получает `ProjectScope` (AD-7).
+  problem: Не определено, как ProjectScope строится (из токена, заголовка, пути),
+    как работает для запросов, охватывающих несколько Project (список Project пользователя),
+    и как создание Project (где Project ещё нет) соотносится с правилом.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '- `deploy/docker-compose.yml` -- все службы'
+  problem: Не перечислен состав служб, порты, тома, способ миграций БД и начального
+    наполнения при `docker compose up`, а также какие переменные окружения обязательны
+    (NFR-4 не приведён в пакете).
+  decision: pending
+  decided_by: pending
+dropped_without_quote: []

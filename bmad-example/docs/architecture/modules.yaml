@@ -1,0 +1,19 @@
+edges:
+- from: ai
+  to: work
+- from: ai
+  to: views
+- from: views
+  to: work
+- from: views
+  to: planning
+- from: planning
+  to: work
+- from: work
+  to: process
+- from: work
+  to: access
+- from: process
+  to: access
+- from: integrations
+  to: work

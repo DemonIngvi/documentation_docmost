@@ -1,0 +1,77 @@
+gate: G01
+target: 1-1-project-team-и-role
+input_hash: 79f9c079ab414bc7e8ba90bb747449aaab1c310cfd21ae845cbc34258a13884d
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 5121
+estimate: 7700
+cost_usd: 0.0153914
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Создать каркас из архитектуры, модуль `access` и управление Project, Team
+    и Role.
+  problem: 'Не определены операции управления: какие эндпоинты REST, какие поля у
+    Project, Team и Role, как пользователь добавляется в Team, как назначается Role
+    (на пользователя или на Team) и кто это может делать. Матрица описывает только
+    создание Project и два случая отказа, а управление Team и назначение Role не описаны
+    вовсе.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: Administrator может войти.
+  problem: 'Нет решения по аутентификации: как пользователь входит (логин/пароль,
+    токены, сессии), где хранятся учётные данные, как создаётся первый Administrator
+    на чистом сервере. Единый вход через внешние каталоги исключён, альтернативы не
+    названы.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '| Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404
+    |'
+  problem: 'Противоречие с AD-7: нехватка Role даёт 403, а в матрице для пользователя
+    без Role указан 404. Не определено, чем «нет Role в Project» отличается от «чужой
+    Project» и «недостаточная Role». Кроме того, Work Item в этой истории ещё не существует
+    (модуль `work` не создаётся), так что читать пока нечего.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Observer меняет | Role Observer | Изменение отклонено | 403
+  problem: 'Не определена матрица прав: что именно могут делать Administrator, Product
+    Owner, Developer, Observer (создавать Project, управлять Team, назначать Role).
+    Можно ли у пользователя иметь разные Role в разных Project, и несколько Role в
+    одном.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '| Нет Process | Запрос без Process | Project не создан | 422 с причиной
+    |'
+  problem: 'Не определён формат ошибки и коды: архитектура требует RFC 9457 со стабильным
+    полем `code`, но конкретные значения `code` для 422/403/404 не заданы. Также не
+    описана валидация других полей Project (имя, уникальность).'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: '- `deploy/docker-compose.yml` -- все службы'
+  problem: 'Состав служб не определён: какие контейнеры (api, web, PostgreSQL, Redis),
+    как применяются миграции Drizzle при `docker compose up`, какие переменные окружения
+    и секреты нужны, как собирается и отдаётся фронтенд React. Критерий «приложение
+    открывается» не уточняет, что именно должно отображаться.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Каждый запрос чтения получает `ProjectScope` (AD-7).
+  problem: 'Не определено, как формируется `ProjectScope`: из какого источника берётся
+    Project (путь, заголовок, токен), как проверяется членство и Role пользователя,
+    как это встроено в NestJS (guard, декоратор). Для эндпоинтов, не привязанных к
+    Project (список своих Project, создание Project), требуется отдельное решение.'
+  decision: pending
+  decided_by: pending
+dropped_without_quote:
+- level: blocker
+  quote: Администратор, Process выбран
+  problem: 'Создание Project требует существующего Process, но модуль `process` в
+    истории не создаётся. Неясно, откуда берётся Process: заглушка, сид, отдельная
+    таблица. Также зависимость `process -> access` означает, что access не может импортировать
+    process, а связь Project с Process нужно как-то хранить.'

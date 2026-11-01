@@ -1,0 +1,56 @@
+url: http://localhost:3100
+credentials: ../../docmost-stack/admin-credentials.txt
+space:
+  name: "Вектор: пример BMAD"
+  slug: vektor-bmad
+  description: Полный учебный пример документации BMAD
+tree:
+  - title: Как читать этот пример
+    source: docs/index.md
+  - title: 1. Анализ
+    children:
+      - title: Итог брейншторма
+        source: _bmad-output/brainstorming/brainstorming-ai-tracker-2026-11-01/brainstorm-intent.md
+      - title: Исследование модели Targetprocess
+        source: _bmad-output/planning-artifacts/research/competitive-targetprocess-model-2026-11-01/research.md
+      - title: Product Brief
+        source: _bmad-output/planning-artifacts/briefs/brief-bmad-example-2026-11-01/brief.md
+      - title: PRFAQ
+        source: _bmad-output/planning-artifacts/prfaq-bmad-example.md
+  - title: 2. Планирование
+    children:
+      - title: PRD
+        source: _bmad-output/planning-artifacts/prds/prd-bmad-example-2026-11-01/prd.md
+      - title: Дополнение к PRD
+        source: _bmad-output/planning-artifacts/prds/prd-bmad-example-2026-11-01/addendum.md
+      - title: "UX: DESIGN"
+        source: _bmad-output/planning-artifacts/ux-designs/ux-bmad-example-2026-11-01/DESIGN.md
+      - title: "UX: EXPERIENCE"
+        source: _bmad-output/planning-artifacts/ux-designs/ux-bmad-example-2026-11-01/EXPERIENCE.md
+  - title: 3. Решения
+    children:
+      - title: Architecture Spine
+        source: _bmad-output/planning-artifacts/architecture/architecture-bmad-example-2026-11-01/ARCHITECTURE-SPINE.md
+      - title: Эпики и истории
+        source: _bmad-output/planning-artifacts/epics.md
+      - title: Проверка готовности
+        source: _bmad-output/planning-artifacts/implementation-readiness.md
+  - title: 4. Реализация
+    children:
+      - title: Статус спринта
+        source: _bmad-output/implementation-artifacts/sprint-status.yaml
+        note: Файл создан и обновлён штатными скриптами BMAD. Статусы Эпика 1 смоделированы, код не писался.
+      - title: "История 1.1: Project, Team и Role"
+        source: _bmad-output/implementation-artifacts/1-1-project-team-и-role.md
+      - title: "История 1.2: Иерархия Work Item и Bug"
+        source: _bmad-output/implementation-artifacts/1-2-иерархия-work-item-и-bug.md
+      - title: "История 1.3: Process и Workflow"
+        source: _bmad-output/implementation-artifacts/1-3-process-и-workflow.md
+      - title: Сводка автотестов
+        source: _bmad-output/implementation-artifacts/tests/test-summary.md
+      - title: Sprint Change Proposal
+        source: _bmad-output/planning-artifacts/sprint-change-proposal-2026-11-01.md
+      - title: Ретроспектива Эпика 1
+        source: _bmad-output/implementation-artifacts/epic-1-retro-2026-11-01.md
+  - title: Контекст проекта
+    source: AGENTS.md

@@ -1,0 +1,30 @@
+header:
+- Name
+- Version
+rows:
+- name: TypeScript
+  version: 7.0.2
+- name: Node.js
+  version: 24.18.0
+- name: NestJS
+  version: 12.3.2
+- name: React
+  version: 19.3.1
+- name: Vite
+  version: 8.3.5
+- name: Drizzle ORM
+  version: 0.45.4
+- name: BullMQ
+  version: 6.5.3
+- name: PostgreSQL
+  version: '18'
+- name: pgvector (клиент)
+  version: 0.3.0
+- name: Redis
+  version: '8'
+- name: dnd-kit
+  version: 6.3.1
+- name: Vitest
+  version: 5.0.5
+- name: Playwright
+  version: 1.64.1

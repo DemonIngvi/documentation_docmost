@@ -1,0 +1,6 @@
+id: AD-11
+title: Поиск похожего внутри PostgreSQL
+binds:
+- FR-19
+prevents: отдельное хранилище и обход прав
+rule: векторы хранятся в `pgvector` с `project_id`, поиск всегда ограничен `ProjectScope`.
