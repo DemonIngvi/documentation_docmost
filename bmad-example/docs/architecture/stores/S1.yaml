@@ -1,0 +1,9 @@
+id: S1
+title: Основная база
+owner: api
+tables: [program, project, team, role, process, workflow, state, work_item, release, iteration, team_iteration, ai_suggestion, ai_journal]
+writes: [api, worker]
+reads: [api, worker]
+deletes: api
+delete_trigger: Удаление Project пользователем Administrator
+backup: Определяется при установке у пилотного заказчика

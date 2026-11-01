@@ -1,0 +1,5 @@
+id: api
+title: Сервер приложения
+level: C2
+responsibility: REST API и модули предметной области
+tech: NestJS 12.3.2

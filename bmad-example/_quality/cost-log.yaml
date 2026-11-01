@@ -61,3 +61,10 @@
   tokens: 5121
   estimate: 7700
   ratio: 0.67
+- date: '2026-11-01'
+  gate: G01
+  target: 1-3-process-и-workflow
+  model: sonnet
+  tokens: 5017
+  estimate: 7700
+  ratio: 0.65

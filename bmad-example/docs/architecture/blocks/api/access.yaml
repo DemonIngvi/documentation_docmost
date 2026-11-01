@@ -1,0 +1,29 @@
+id: api-access
+title: Доступ
+kind: service
+does:
+- ведёт Project, Team и Role
+- выдаёт `ProjectScope` другим модулям
+- скрывает чужой Project и отклоняет действие без нужной Role
+tech: NestJS 12.3.2
+stories: ['1.1']
+io:
+- dir: in
+  with: модули work и process
+  what: запрос `ProjectScope`
+data:
+- table: project
+  access: read-write
+- table: team
+  access: read-write
+- table: role
+  access: read-write
+params: 'нет: права задаются записями Role, отдельных настроек нет'
+reqs: [FR-1, FR-2]
+tasks: ['1.1']
+on_failure: Чужой Project даёт 404, нехватка Role даёт 403. Если база недоступна, запрос отклоняется и права не считаются выданными.
+why: Права проверяются в одном модуле, поэтому запрос чтения без `ProjectScope` не компилируется (AD-7).
+operations:
+- name: ProjectScope.forUser
+  caller: work, process
+  via: внутри

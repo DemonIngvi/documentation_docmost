@@ -1,6 +1,6 @@
 ok: false
 blockers: 8
-warnings: 18
+warnings: 19
 findings:
 - gate: G07
   level: blocker
@@ -60,49 +60,176 @@ findings:
   problem: Нет сценария качества с измеримым откликом
 - gate: G08
   level: warning
+  where: '1.1: Project, Team и Role'
+  problem: 'Мало классов: S1, S5'
+- gate: G08
+  level: warning
   where: '1.2: Иерархия Work Item и Bug'
   problem: 'Размытые слова: понятной'
 - gate: G08
   level: warning
   where: '2.2: List и фильтры'
-  problem: Нет негативного сценария
+  problem: Нет негативного сценария S3–S6
 - gate: G08
   level: warning
   where: '2.3: Visual Encoding'
-  problem: Нет негативного сценария
+  problem: Нет негативного сценария S3–S6
 - gate: G08
   level: warning
   where: '2.4: Roadmap'
-  problem: Нет негативного сценария
+  problem: Нет негативного сценария S3–S6
 - gate: G08
   level: warning
   where: '2.5: Dashboard'
-  problem: Нет негативного сценария
+  problem: 'Мало классов: S1, S5'
+- gate: G08
+  level: warning
+  where: '3.1: Release и Iteration'
+  problem: 'Мало классов: S1, S3'
 - gate: G08
   level: warning
   where: '3.2: Team Iteration'
-  problem: Нет негативного сценария
+  problem: Нет негативного сценария S3–S6
 - gate: G08
   level: warning
   where: '4.1: Request'
-  problem: Нет негативного сценария
+  problem: Нет негативного сценария S3–S6
 - gate: G08
   level: warning
   where: '4.2: Custom Field'
-  problem: Нет негативного сценария
-- gate: G08
-  level: warning
-  where: '5.1: Model Connection'
-  problem: Нет негативного сценария
-- gate: G08
-  level: warning
-  where: '5.2: AI Journal'
-  problem: Нет негативного сценария
+  problem: Нет негативного сценария S3–S6
 - gate: G08
   level: warning
   where: '5.4: AI-поиск дублей'
-  problem: Нет негативного сценария
+  problem: 'Мало классов: S1, S5'
+- gate: G08
+  level: warning
+  where: '5.5: AI-фильтр'
+  problem: 'Мало классов: S1, S3'
 - gate: G12
   level: blocker
   where: prd.md
   problem: Допущений в тексте 0, в индексе 4
+coverage:
+  scenario_classes:
+    stories:
+      1-1-project-team-и-role.md:
+        covered:
+        - S1
+        - S3
+        - S5
+        not_applicable:
+          S2: другой допустимой ветки создания Project нет
+          S4: в FR-1 и FR-2 нет числовых лимитов
+          S6: история не вызывает внешних систем
+          S7: повторное создание защищено уникальным именем Project
+          S8: повторное создание защищено уникальным именем Project
+          S9: у истории нет настроек поведения
+          S10: каждая операция выполняется одной транзакцией
+          S11: удаление Project в историю не входит
+          S12: аудит изменений Role отложен вместе с журналом
+      1-2-иерархия-work-item-и-bug.md:
+        covered:
+        - S1
+        - S3
+        - S4
+        not_applicable:
+          S2: порядок уровней иерархии задан один
+          S5: права проверяет история 1.1 через `ProjectScope`
+          S6: история не вызывает внешних систем
+          S7: связь записывается одной транзакцией с проверкой родителя
+          S8: связь записывается одной транзакцией с проверкой родителя
+          S9: правила иерархии не настраиваются
+          S10: незавершённых многошаговых операций нет
+          S11: удаление Work Item в историю не входит
+          S12: изменения видны в истории Work Item из другой задачи
+      1-3-process-и-workflow.md:
+        covered:
+        - S1
+        - S3
+        - S5
+        - S7
+        not_applicable:
+          S2: других веток перехода, кроме разрешённой и запрещённой, нет
+          S4: числовых лимитов у Workflow нет
+          S6: история не вызывает внешних систем
+          S8: повтор уже выполненного перехода получает отказ S7, побочных действий
+            нет
+          S9: сам Workflow и есть настройка, её варианты покрыты строками таблицы
+          S10: незавершённых многошаговых операций нет
+          S11: данные Work Item при переходе не удаляются
+          S12: переходы фиксируются в истории Work Item из другой задачи
+    epics_guessed:
+      '1.1':
+      - S1
+      - S5
+      '1.2':
+      - S1
+      - S3
+      - S4
+      '1.3':
+      - S1
+      - S3
+      - S9
+      - S11
+      '2.1':
+      - S1
+      - S3
+      - S4
+      '2.2':
+      - S1
+      - S11
+      '2.3':
+      - S1
+      '2.4':
+      - S1
+      '2.5':
+      - S1
+      - S5
+      '3.1':
+      - S1
+      - S3
+      '3.2':
+      - S1
+      '3.3':
+      - S1
+      - S3
+      - S4
+      '4.1':
+      - S1
+      '4.2':
+      - S1
+      '4.3':
+      - S1
+      - S3
+      - S5
+      '4.4':
+      - S1
+      - S4
+      - S5
+      - S6
+      - S8
+      - S11
+      '5.1':
+      - S1
+      - S5
+      - S9
+      '5.2':
+      - S1
+      - S2
+      - S3
+      - S12
+      '5.3':
+      - S1
+      - S6
+      - S10
+      '5.4':
+      - S1
+      - S5
+      '5.5':
+      - S1
+      - S3
+  blocks:
+    api-access:
+      title: Доступ
+      filled: 100

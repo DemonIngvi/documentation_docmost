@@ -1,0 +1,74 @@
+gate: G01
+target: 1-3-process-и-workflow
+input_hash: 0ce4de4fc7ab1a9dabdd42c159e321705333f6cc449cf5e6def36e8f6e7926c0
+run_by: run_gate.py sonnet
+author: unknown
+verdict: fail
+tokens: 5017
+estimate: 7700
+cost_usd: 0.026923000000000002
+not_checked: Один запуск не доказывает полноту, разные запуски находят разное
+findings:
+- level: blocker
+  quote: Given новый Project, when он создан, then у него есть рабочий Workflow по
+    умолчанию.
+  problem: 'Не определено, что такое «рабочий Workflow по умолчанию»: какие State,
+    какие разрешённые переходы, для каких типов Work Item. Без этого нельзя написать
+    тест и сами строки S1/S3 (Открыто, В работе, Готово) не привязаны к конкретной
+    конфигурации.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '| S3 Запрещённый переход | Открыто → Готово | State не изменён | 422 с разрешёнными
+    переходами |'
+  problem: 'Не задан формат тела ошибки: значение поля `code`, структура списка разрешённых
+    переходов (id, названия, поле Problem Details). Автотест не может проверить ответ
+    без догадок.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: '| S3 Удаление занятого State | В State есть Work Item | Удаление отклонено
+    | Требуется перенос |'
+  problem: 'Не указан HTTP-статус и code ошибки. Неясно, что значит «требуется перенос»:
+    есть ли API массового переноса Work Item в другой State, куда переносить, и как
+    удаление и перенос сочетаются. Сценарий дублирует номер S3 и не описывает, кто
+    и как удаляет State.'
+  decision: pending
+  decided_by: pending
+- level: blocker
+  quote: смена State выполняется только командой `TransitionWorkItem`, она проверяет
+    Workflow и Role.
+  problem: Архитектура требует проверки Role, а история относит права к 1.1 через
+    `ProjectScope`. Не определено, какая Role вправе делать какие переходы и какой
+    результат при отказе (403 или иное). Нет строки в таблице.
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Модуль `process` и единая команда `TransitionWorkItem` по AD-3.
+  problem: 'Нет API/интерфейса команды: входные параметры, эндпоинт, идемпотентность.
+    Не описано, как настраивается Workflow (создание, редактирование State и переходов,
+    кто редактирует), хотя задача «настройка Workflow» есть.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Workflow** — состояния и разрешённые переходы для типа Work Item.
+  problem: 'Не решено, как Workflow соотносится с типами Work Item: один на тип или
+    общий, что происходит при переходе для типа без Workflow. Начальный State при
+    создании Work Item тоже не определён.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: S7, S8 — переход выполняется одной транзакцией от текущего State
+  problem: 'Не решено поведение при конкурентных переходах одного Work Item (два запроса
+    одновременно, устаревший исходный State): блокировка, оптимистичная версия или
+    последний выигрывает. Автотест гонки нельзя написать.'
+  decision: pending
+  decided_by: pending
+- level: minor
+  quote: Project использует ровно один Process.
+  problem: Не определено, можно ли менять Workflow, если Work Item уже находятся в
+    State, переходы из которого убираются, и как обрабатывается переход в тот же самый
+    State (Открыто → Открыто).
+  decision: pending
+  decided_by: pending
+dropped_without_quote: []

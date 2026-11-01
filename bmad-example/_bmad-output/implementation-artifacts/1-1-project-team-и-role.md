@@ -29,10 +29,12 @@ context:
 
 | Scenario | Input / State | Expected Output / Behavior | Error Handling |
 |----------|--------------|---------------------------|----------------|
-| Создание Project | Administrator, Process выбран | Project создан | N/A |
-| Нет Process | Запрос без Process | Project не создан | 422 с причиной |
-| Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404 |
-| Observer меняет | Role Observer | Изменение отклонено | 403 |
+| S1 Создание Project | Administrator, Process выбран | Project создан | N/A |
+| S3 Нет Process | Запрос без Process | Project не создан | 422 с причиной |
+| S5 Нет Role | Пользователь без Role читает Work Item | Данные скрыты | 404 |
+| S5 Observer меняет | Role Observer | Изменение отклонено | 403 |
+
+**Not applicable:** S2 — другой допустимой ветки создания Project нет; S4 — в FR-1 и FR-2 нет числовых лимитов; S6 — история не вызывает внешних систем; S7, S8 — повторное создание защищено уникальным именем Project; S9 — у истории нет настроек поведения; S10 — каждая операция выполняется одной транзакцией; S11 — удаление Project в историю не входит; S12 — аудит изменений Role отложен вместе с журналом
 
 </frozen-after-approval>
 
