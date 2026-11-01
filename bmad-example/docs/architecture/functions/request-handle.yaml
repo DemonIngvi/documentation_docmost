@@ -1,0 +1,13 @@
+id: request-handle
+title: Разбирать Request
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-5
+reads:
+- work-item
+- ai-suggestion
+writes:
+- work-item

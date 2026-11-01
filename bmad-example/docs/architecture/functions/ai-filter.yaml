@@ -1,0 +1,15 @@
+id: ai-filter
+title: Строить фильтр из текста
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-20
+reads:
+- work-item
+- custom-field
+- model-connection
+writes:
+- filter-spec
+- ai-suggestion

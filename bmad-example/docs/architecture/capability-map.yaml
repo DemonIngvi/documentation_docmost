@@ -3,9 +3,9 @@ header:
 - Lives in
 - Governed by
 rows:
-- capability: FR-1, FR-2
+- capability: FR-1, FR-2, FR-23
   lives_in: '`access`'
-  governed_by: AD-7
+  governed_by: AD-7, AD-12
 - capability: FR-3, FR-4, FR-5
   lives_in: '`work`'
   governed_by: AD-2, AD-3

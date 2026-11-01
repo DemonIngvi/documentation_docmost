@@ -1,0 +1,15 @@
+id: api-token
+title: API-токен
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: master
+sensitivity: secret
+states: []
+attributes:
+- name: user_id
+  type: uuid
+- name: token_hash
+  type: string
+- name: revoked_at
+  type: timestamp

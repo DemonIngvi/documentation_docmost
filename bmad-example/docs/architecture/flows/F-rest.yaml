@@ -1,0 +1,12 @@
+id: F-rest
+title: Команда внешней системы
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: external-system
+to: api
+objects:
+- work-item
+trigger: запрос клиента
+flow_type: command
+over: I-rest

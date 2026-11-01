@@ -1,0 +1,19 @@
+id: project
+title: Project
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: master
+sensitivity: internal
+states:
+- active
+- archived
+attributes:
+- name: name
+  type: string
+- name: program_id
+  type: uuid
+- name: process_id
+  type: uuid
+- name: archived_at
+  type: timestamp

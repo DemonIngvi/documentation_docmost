@@ -1,0 +1,12 @@
+id: F-user-command
+title: Команда пользователя
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: developer
+to: api
+objects:
+- work-item
+trigger: действие на экране
+flow_type: command
+over: I-web

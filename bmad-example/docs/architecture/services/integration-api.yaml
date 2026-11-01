@@ -1,0 +1,15 @@
+id: integration-api
+title: Интеграция с Вектором
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+consumers:
+- integrator
+- external-system
+provider: vektor
+functions:
+- rest-api
+- webhook-deliver
+objectives:
+- text: Установка одной командой
+  quality: Q-4

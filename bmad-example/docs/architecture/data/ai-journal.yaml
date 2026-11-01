@@ -1,0 +1,23 @@
+id: ai-journal
+title: AI Journal
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: event
+sensitivity: internal
+states: []
+attributes:
+- name: user_id
+  type: uuid
+- name: model
+  type: string
+- name: prompt_version
+  type: string
+- name: shown_at
+  type: timestamp
+- name: decided_at
+  type: timestamp
+- name: decision
+  type: enum
+- name: edited
+  type: boolean

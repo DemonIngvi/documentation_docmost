@@ -1,0 +1,11 @@
+id: production
+title: Сервер заказчика
+owner: заказчик
+lifecycle: planned
+criticality: high
+environment: production
+runs:
+- api
+- worker
+- web
+tech: Docker Compose

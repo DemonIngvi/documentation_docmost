@@ -1,0 +1,14 @@
+id: workflow-configure
+title: Настраивать Process и Workflow
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-6
+reads:
+- work-item
+writes:
+- process
+- workflow
+- state

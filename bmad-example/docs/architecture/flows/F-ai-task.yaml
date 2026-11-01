@@ -1,0 +1,12 @@
+id: F-ai-task
+title: Постановка задачи ИИ
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: api
+to: worker
+objects:
+- ai-task
+trigger: запрос пользователя
+flow_type: command
+over: I-queue

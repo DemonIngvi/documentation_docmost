@@ -1,0 +1,14 @@
+id: I-realtime
+title: Изменения приходят на Board
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: api
+to: web
+purpose: Изменения приходят на Board
+integration_type: event-stream
+protocol: WebSocket
+auth: сессия
+timeout: переподключение через 5 с
+retry: нет, клиент перечитывает Board
+idempotent: true

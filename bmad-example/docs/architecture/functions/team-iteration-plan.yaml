@@ -1,0 +1,14 @@
+id: team-iteration-plan
+title: Планировать Team Iteration
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-9
+reads:
+- team
+- work-item
+writes:
+- team-iteration
+- work-item

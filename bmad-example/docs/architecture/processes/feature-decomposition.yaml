@@ -1,0 +1,31 @@
+id: feature-decomposition
+title: Разбивка Feature
+owner: руководитель продукта
+lifecycle: planned
+criticality: medium
+trigger: Feature готова к разбивке
+actors:
+- product-owner
+journeys:
+- UJ-1
+inputs:
+- work-item
+outputs:
+- work-item
+- ai-journal
+steps:
+- title: Запросить декомпозицию
+  actor: product-owner
+  function: ai-decompose
+  inputs:
+  - work-item
+  outputs:
+  - ai-suggestion
+- title: Применить черновики
+  actor: product-owner
+  function: ai-suggestion-apply
+  inputs:
+  - ai-suggestion
+  outputs:
+  - work-item
+  - ai-journal

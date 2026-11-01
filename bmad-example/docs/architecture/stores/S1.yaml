@@ -1,9 +1,66 @@
 id: S1
 title: Основная база
 owner: api
-tables: [program, project, team, role, process, workflow, state, work_item, release, iteration, team_iteration, ai_suggestion, ai_journal]
-writes: [api, worker]
-reads: [api, worker]
+lifecycle: planned
+criticality: high
+objects:
+- user
+- api-token
+- program
+- project
+- team
+- role
+- process
+- workflow
+- state
+- custom-field
+- work-item
+- work-item-history
+- release
+- iteration
+- team-iteration
+- filter-spec
+- view
+- visual-rule
+- dashboard
+- model-connection
+- ai-suggestion
+- ai-journal
+- embedding
+- outbox-event
+- webhook-subscription
+tables:
+- user
+- api_token
+- program
+- project
+- team
+- role
+- process
+- workflow
+- state
+- custom_field
+- work_item
+- work_item_history
+- release
+- iteration
+- team_iteration
+- filter_spec
+- view
+- visual_rule
+- dashboard
+- model_connection
+- ai_suggestion
+- ai_journal
+- embedding
+- outbox_event
+- webhook_subscription
+writes:
+- api
+- worker
+reads:
+- api
+- worker
 deletes: api
 delete_trigger: Удаление Project пользователем Administrator
 backup: Определяется при установке у пилотного заказчика

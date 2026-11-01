@@ -1,0 +1,19 @@
+id: ai-suggestion
+title: AI Suggestion
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: transactional
+sensitivity: internal
+states:
+- pending
+- applied
+- rejected
+- undone
+attributes:
+- name: work_item_id
+  type: uuid
+- name: payload
+  type: json
+- name: applied_at
+  type: timestamp

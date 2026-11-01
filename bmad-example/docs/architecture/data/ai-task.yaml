@@ -1,0 +1,17 @@
+id: ai-task
+title: Задача ИИ
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: transactional
+sensitivity: internal
+states:
+- queued
+- running
+- done
+- failed
+attributes:
+- name: kind
+  type: enum
+- name: work_item_id
+  type: uuid

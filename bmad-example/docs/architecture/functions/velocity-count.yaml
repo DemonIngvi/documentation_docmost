@@ -1,0 +1,14 @@
+id: velocity-count
+title: Считать Effort и Velocity
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-10
+reads:
+- work-item
+- iteration
+- team-iteration
+writes:
+- work-item

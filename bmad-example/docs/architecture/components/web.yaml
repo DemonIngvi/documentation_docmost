@@ -1,0 +1,10 @@
+id: web
+title: Веб-интерфейс
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+responsibility: Экраны Board, List, Roadmap и Dashboard
+tech: React 19.3.1
+functions:
+- board-move

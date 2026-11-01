@@ -1,0 +1,18 @@
+id: board-move
+title: Вести Board
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-11
+- NFR-1
+- NFR-5
+reads:
+- work-item
+- workflow
+- state
+- role
+writes:
+- work-item
+- outbox-event

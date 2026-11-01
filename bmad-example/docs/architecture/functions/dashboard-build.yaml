@@ -1,0 +1,14 @@
+id: dashboard-build
+title: Собирать Dashboard
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-15
+reads:
+- view
+- work-item
+- iteration
+writes:
+- dashboard

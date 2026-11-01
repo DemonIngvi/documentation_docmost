@@ -1,0 +1,12 @@
+id: F-model-reply
+title: Ответ модели
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: model-provider
+to: worker
+objects:
+- ai-suggestion
+trigger: ответ на запрос
+flow_type: query
+over: I-model

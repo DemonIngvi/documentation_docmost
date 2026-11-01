@@ -1,0 +1,14 @@
+id: I-webhook
+title: События уходят во внешнюю систему
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: worker
+to: external-system
+purpose: События уходят во внешнюю систему
+integration_type: webhook
+protocol: HTTPS, JSON
+auth: подпись запроса
+timeout: 5 с
+retry: три повтора через 1, 5 и 30 минут
+idempotent: true

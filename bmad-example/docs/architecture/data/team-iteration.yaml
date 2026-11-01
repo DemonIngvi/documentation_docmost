@@ -1,0 +1,13 @@
+id: team-iteration
+title: Team Iteration
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: master
+sensitivity: internal
+states: []
+attributes:
+- name: team_id
+  type: uuid
+- name: capacity
+  type: integer

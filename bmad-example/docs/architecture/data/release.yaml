@@ -1,0 +1,15 @@
+id: release
+title: Release
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: master
+sensitivity: internal
+states: []
+attributes:
+- name: name
+  type: string
+- name: start_date
+  type: date
+- name: end_date
+  type: date

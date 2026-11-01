@@ -1,0 +1,57 @@
+scenarios:
+- id: Q-1
+  nfr: NFR-1
+  attribute: Производительность
+  priority: H
+  stimulus: Открытие Board на 2 000 карточек
+  response: Board показан полностью
+  response_measure: быстрее 1,5 с на стенде 4 vCPU, 8 ГБ
+  fitness: нагрузочный тест Playwright
+- id: Q-2
+  nfr: NFR-2
+  attribute: Отклик
+  priority: H
+  stimulus: 100 запросов декомпозиции
+  response: AI Suggestion готово, интерфейс не заблокирован
+  response_measure: 95 % за 20 с
+  fitness: нагрузочный тест с эталонной моделью
+- id: Q-3
+  nfr: NFR-3
+  attribute: Приватность
+  priority: H
+  stimulus: Запрос к локальной модели
+  response: Сетевой обмен только с указанным адресом
+  response_measure: 0 соединений с другими адресами
+  fitness: тест с перехватом сети
+- id: Q-4
+  nfr: NFR-4
+  attribute: Развёртывание
+  priority: M
+  stimulus: Запуск на чистом сервере
+  response: Приложение открывается
+  response_measure: один `docker compose up` без ручных шагов
+  fitness: сквозной тест в CI
+- id: Q-5
+  nfr: NFR-5
+  attribute: Доступность
+  priority: M
+  stimulus: Проверка Board
+  response: Экран доступен с клавиатуры
+  response_measure: 0 нарушений WCAG 2.1 AA
+  fitness: axe в Playwright и ручной проход
+- id: Q-6
+  nfr: NFR-6
+  attribute: Устойчивость
+  priority: H
+  stimulus: Модель недоступна
+  response: Работа без ИИ продолжается
+  response_measure: 0 ошибок в запросах без ИИ
+  fitness: тест с отключённой моделью
+- id: Q-7
+  nfr: NFR-7
+  attribute: Аудит
+  priority: M
+  stimulus: Изменение Work Item
+  response: Изменение записано в историю
+  response_measure: 100 % изменений
+  fitness: интеграционный тест

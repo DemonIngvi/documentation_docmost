@@ -1,0 +1,12 @@
+id: webhook-subscribe
+title: Вести подписки Webhook
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-22
+reads:
+- project
+writes:
+- webhook-subscription

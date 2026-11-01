@@ -1,0 +1,12 @@
+id: F-webhook
+title: Событие об изменении Work Item
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: worker
+to: external-system
+objects:
+- outbox-event
+trigger: запись в outbox
+flow_type: event
+over: I-webhook

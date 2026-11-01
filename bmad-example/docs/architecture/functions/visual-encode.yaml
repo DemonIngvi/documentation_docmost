@@ -1,0 +1,12 @@
+id: visual-encode
+title: Подсвечивать карточки
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-13
+reads:
+- work-item
+writes:
+- visual-rule

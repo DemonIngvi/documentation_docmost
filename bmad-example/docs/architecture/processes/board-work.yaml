@@ -1,0 +1,24 @@
+id: board-work
+title: Работа на Board
+owner: руководитель продукта
+lifecycle: planned
+criticality: medium
+trigger: Начат рабочий день
+actors:
+- developer
+journeys:
+- UJ-4
+inputs:
+- work-item
+outputs:
+- work-item
+- outbox-event
+steps:
+- title: Перенести карточку
+  actor: developer
+  function: board-move
+  inputs:
+  - work-item
+  outputs:
+  - work-item
+  - outbox-event

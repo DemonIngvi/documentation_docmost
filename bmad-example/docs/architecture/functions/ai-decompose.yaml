@@ -1,0 +1,16 @@
+id: ai-decompose
+title: Предлагать декомпозицию
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-18
+- NFR-2
+- NFR-6
+reads:
+- work-item
+- model-connection
+writes:
+- ai-task
+- ai-suggestion

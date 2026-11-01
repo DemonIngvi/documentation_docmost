@@ -1,0 +1,30 @@
+id: request-triage
+title: Разбор Request
+owner: руководитель продукта
+lifecycle: planned
+criticality: medium
+trigger: Поступил Request
+actors:
+- support-lead
+journeys:
+- UJ-2
+inputs:
+- work-item
+outputs:
+- work-item
+steps:
+- title: Найти похожие
+  actor: vektor
+  function: ai-duplicates
+  inputs:
+  - work-item
+  outputs:
+  - ai-suggestion
+- title: Связать или превратить в работу
+  actor: support-lead
+  function: request-handle
+  inputs:
+  - work-item
+  - ai-suggestion
+  outputs:
+  - work-item

@@ -1,0 +1,14 @@
+id: I-web
+title: Экраны работают с сервером
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: web
+to: api
+purpose: Экраны работают с сервером
+integration_type: sync-api
+protocol: HTTPS, JSON
+auth: сессия
+timeout: 10 с
+retry: нет
+idempotent: false

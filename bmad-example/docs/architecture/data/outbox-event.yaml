@@ -1,0 +1,15 @@
+id: outbox-event
+title: Событие outbox
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: event
+sensitivity: internal
+states:
+- new
+- sent
+attributes:
+- name: type
+  type: string
+- name: payload
+  type: json

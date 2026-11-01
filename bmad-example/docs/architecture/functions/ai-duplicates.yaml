@@ -1,0 +1,15 @@
+id: ai-duplicates
+title: Искать дубли
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-19
+reads:
+- work-item
+- embedding
+- role
+writes:
+- ai-suggestion
+- embedding

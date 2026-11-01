@@ -1,0 +1,12 @@
+id: bug-manage
+title: Вести Bug
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-4
+reads:
+- work-item
+writes:
+- work-item

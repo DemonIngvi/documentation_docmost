@@ -1,0 +1,17 @@
+id: state
+title: State
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: reference
+sensitivity: internal
+states: []
+attributes:
+- name: workflow_id
+  type: uuid
+- name: name
+  type: string
+- name: is_final
+  type: boolean
+- name: wip_limit
+  type: integer

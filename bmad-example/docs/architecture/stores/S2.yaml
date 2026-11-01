@@ -1,0 +1,17 @@
+id: S2
+title: Redis
+owner: worker
+lifecycle: planned
+criticality: medium
+objects:
+- ai-task
+tables:
+- bullmq_jobs
+writes:
+- api
+- worker
+reads:
+- worker
+deletes: worker
+delete_trigger: Завершение задачи и истечение сессии
+backup: 'Не нужен: задачи создаются заново, сессии выпускаются при входе'

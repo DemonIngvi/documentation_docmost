@@ -1,0 +1,17 @@
+id: visual-rule
+title: Правило Visual Encoding
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: master
+sensitivity: internal
+states: []
+attributes:
+- name: position
+  type: integer
+- name: filter_spec
+  type: json
+- name: color
+  type: string
+- name: icon
+  type: string

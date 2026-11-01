@@ -1,0 +1,21 @@
+id: work-item-history
+title: История Work Item
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: event
+sensitivity: internal
+states: []
+attributes:
+- name: work_item_id
+  type: uuid
+- name: author_id
+  type: uuid
+- name: field
+  type: string
+- name: old_value
+  type: json
+- name: new_value
+  type: json
+- name: at
+  type: timestamp

@@ -1,0 +1,17 @@
+id: tracking
+title: Ведение работы
+owner: команда-ядра
+lifecycle: planned
+criticality: high
+consumers:
+- developer
+- product-owner
+provider: vektor
+functions:
+- work-item-manage
+- board-move
+objectives:
+- text: Board открывается быстрее 1,5 с
+  quality: Q-1
+- text: Каждое изменение есть в истории
+  quality: Q-7

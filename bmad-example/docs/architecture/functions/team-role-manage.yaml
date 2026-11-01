@@ -1,0 +1,14 @@
+id: team-role-manage
+title: Вести Team и Role
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-2
+reads:
+- user
+- project
+writes:
+- team
+- role

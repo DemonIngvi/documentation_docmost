@@ -1,0 +1,31 @@
+params:
+- name: webhook.retry.max
+  default: 3
+  min: 3
+  max: 10
+  why: FR-22 требует не менее трёх повторов
+  owner: worker
+- name: webhook.timeout.seconds
+  default: 5
+  min: 1
+  max: 30
+  why: Медленный получатель не должен держать очередь
+  owner: worker
+- name: ai.request.timeout.seconds
+  default: 60
+  min: 10
+  max: 300
+  why: Локальная модель отвечает медленнее внешней
+  owner: worker
+- name: ai.embedding.dimension
+  default: 1024
+  min: 256
+  max: 3072
+  why: Значение задаётся моделью эмбеддингов, смена требует пересчёта
+  owner: api
+- name: session.ttl.hours
+  default: 12
+  min: 1
+  max: 24
+  why: FR-23 задаёт 12 часов
+  owner: api

@@ -1,0 +1,11 @@
+id: filter-spec
+title: FilterSpec
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: reference
+sensitivity: internal
+states: []
+attributes:
+- name: conditions
+  type: json

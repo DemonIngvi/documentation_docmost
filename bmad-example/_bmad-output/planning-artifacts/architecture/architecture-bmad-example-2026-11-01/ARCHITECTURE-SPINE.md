@@ -8,7 +8,7 @@ scope: 'весь продукт Вектор v1'
 status: final
 created: '2026-11-01'
 updated: '2026-11-01'
-binds: [FR-1, FR-2, FR-3, FR-4, FR-5, FR-6, FR-7, FR-8, FR-9, FR-10, FR-11, FR-12, FR-13, FR-14, FR-15, FR-16, FR-17, FR-18, FR-19, FR-20, FR-21, FR-22, NFR-1, NFR-2, NFR-3, NFR-4, NFR-5, NFR-6, NFR-7]
+binds: [FR-1, FR-2, FR-3, FR-4, FR-5, FR-6, FR-7, FR-8, FR-9, FR-10, FR-11, FR-12, FR-13, FR-14, FR-15, FR-16, FR-17, FR-18, FR-19, FR-20, FR-21, FR-22, FR-23, NFR-1, NFR-2, NFR-3, NFR-4, NFR-5, NFR-6, NFR-7]
 sources:
   - _bmad-output/planning-artifacts/prds/prd-bmad-example-2026-11-01/prd.md
   - _bmad-output/planning-artifacts/ux-designs/ux-bmad-example-2026-11-01/EXPERIENCE.md
@@ -104,7 +104,13 @@ graph TD
 
 - **Binds:** FR-19
 - **Prevents:** отдельное хранилище и обход прав
-- **Rule:** векторы хранятся в `pgvector` с `project_id`, поиск всегда ограничен `ProjectScope`.
+- **Rule:** векторы хранятся в `pgvector` с `project_id`, поиск всегда ограничен `ProjectScope`. Векторы строит модель эмбеддингов из Model Connection, размерность задаёт параметр `ai.embedding.dimension`, смена модели запускает пересчёт.
+
+### AD-12 — Вход и токены
+
+- **Binds:** FR-23
+- **Prevents:** разные способы проверки пользователя в API и интерфейсе
+- **Rule:** модуль `access` один проверяет пользователя. Интерфейс получает сессию на 12 часов в Redis, API получает токен, в базе лежат только хеши паролей и токенов. Отключение пользователя сразу удаляет его сессии и токены.
 
 ## Consistency Conventions
 
@@ -191,7 +197,7 @@ vektor/
 
 | Capability / Area | Lives in | Governed by |
 | --- | --- | --- |
-| FR-1, FR-2 | `access` | AD-7 |
+| FR-1, FR-2, FR-23 | `access` | AD-7, AD-12 |
 | FR-3, FR-4, FR-5 | `work` | AD-2, AD-3 |
 | FR-6, FR-7 | `process` | AD-3 |
 | FR-8, FR-9, FR-10 | `planning` | AD-1 |

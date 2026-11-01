@@ -1,0 +1,12 @@
+id: F-board-update
+title: Обновление Board
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: api
+to: web
+objects:
+- work-item
+trigger: изменение Work Item
+flow_type: event
+over: I-realtime

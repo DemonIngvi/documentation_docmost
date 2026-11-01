@@ -1,0 +1,14 @@
+id: I-rest
+title: Внешняя система работает с Work Item
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: external-system
+to: api
+purpose: Внешняя система работает с Work Item
+integration_type: sync-api
+protocol: HTTPS, JSON, OpenAPI
+auth: API-токен
+timeout: 10 с
+retry: на стороне клиента
+idempotent: false

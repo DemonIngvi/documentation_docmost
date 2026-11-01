@@ -3,4 +3,4 @@ title: Поиск похожего внутри PostgreSQL
 binds:
 - FR-19
 prevents: отдельное хранилище и обход прав
-rule: векторы хранятся в `pgvector` с `project_id`, поиск всегда ограничен `ProjectScope`.
+rule: векторы хранятся в `pgvector` с `project_id`, поиск всегда ограничен `ProjectScope`. Векторы строит модель эмбеддингов из Model Connection, размерность задаёт параметр `ai.embedding.dimension`, смена модели запускает пересчёт.

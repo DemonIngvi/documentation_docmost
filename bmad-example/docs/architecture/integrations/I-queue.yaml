@@ -1,0 +1,14 @@
+id: I-queue
+title: Фоновая работа передаётся обработчику
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: api
+to: worker
+purpose: Фоновая работа передаётся обработчику
+integration_type: async-queue
+protocol: BullMQ на Redis
+auth: пароль Redis
+timeout: 30 с
+retry: BullMQ, три попытки
+idempotent: true

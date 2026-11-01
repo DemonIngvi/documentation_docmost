@@ -1,0 +1,14 @@
+id: project-manage
+title: Вести Project и Program
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-1
+reads:
+- process
+- program
+writes:
+- project
+- program

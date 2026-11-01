@@ -1,0 +1,11 @@
+id: team
+title: Team
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: master
+sensitivity: internal
+states: []
+attributes:
+- name: name
+  type: string

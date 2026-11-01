@@ -1,0 +1,14 @@
+id: worker
+title: Фоновый обработчик
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+responsibility: Очереди, outbox и запросы к модели
+tech: Node.js 24.18.0
+functions:
+- webhook-deliver
+- ai-decompose
+- ai-duplicates
+- ai-filter
+- ai-journal-write

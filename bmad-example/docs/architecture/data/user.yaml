@@ -1,0 +1,15 @@
+id: user
+title: Пользователь
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: master
+sensitivity: personal
+states: []
+attributes:
+- name: email
+  type: string
+- name: password_hash
+  type: string
+- name: is_active
+  type: boolean

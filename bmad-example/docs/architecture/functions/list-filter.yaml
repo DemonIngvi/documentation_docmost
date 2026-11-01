@@ -1,0 +1,14 @@
+id: list-filter
+title: Фильтровать List и сохранять View
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-12
+reads:
+- work-item
+- custom-field
+- filter-spec
+writes:
+- view

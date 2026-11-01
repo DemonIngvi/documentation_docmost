@@ -1,0 +1,6 @@
+id: external-system
+title: Внешняя система
+owner: заказчик
+lifecycle: planned
+criticality: medium
+kind: external

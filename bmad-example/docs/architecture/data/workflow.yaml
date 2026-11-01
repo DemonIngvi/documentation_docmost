@@ -1,0 +1,13 @@
+id: workflow
+title: Workflow
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+class: reference
+sensitivity: internal
+states: []
+attributes:
+- name: process_id
+  type: uuid
+- name: item_type
+  type: enum

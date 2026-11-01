@@ -1,0 +1,37 @@
+id: work-slice
+title: Сбор среза
+owner: руководитель продукта
+lifecycle: planned
+criticality: medium
+trigger: Нужен срез работы
+actors:
+- direction-lead
+journeys:
+- UJ-3
+inputs:
+- work-item
+outputs:
+- view
+- dashboard
+steps:
+- title: Описать срез словами
+  actor: direction-lead
+  function: ai-filter
+  inputs:
+  - work-item
+  outputs:
+  - filter-spec
+- title: Сохранить View
+  actor: direction-lead
+  function: list-filter
+  inputs:
+  - filter-spec
+  outputs:
+  - view
+- title: Добавить на Dashboard
+  actor: direction-lead
+  function: dashboard-build
+  inputs:
+  - view
+  outputs:
+  - dashboard

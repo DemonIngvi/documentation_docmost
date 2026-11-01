@@ -1,0 +1,13 @@
+id: model-connect
+title: Подключать модель
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-16
+- NFR-3
+reads:
+- project
+writes:
+- model-connection

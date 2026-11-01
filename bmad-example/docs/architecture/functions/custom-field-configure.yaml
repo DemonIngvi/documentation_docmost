@@ -1,0 +1,12 @@
+id: custom-field-configure
+title: Настраивать Custom Field
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+system: vektor
+reqs:
+- FR-7
+reads:
+- process
+writes:
+- custom-field

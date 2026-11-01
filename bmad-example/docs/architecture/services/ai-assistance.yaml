@@ -1,0 +1,19 @@
+id: ai-assistance
+title: Помощь ИИ
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+consumers:
+- product-owner
+- support-lead
+- direction-lead
+provider: vektor
+functions:
+- ai-decompose
+- ai-duplicates
+- ai-filter
+objectives:
+- text: 95 % AI Suggestion готовы за 20 с
+  quality: Q-2
+- text: Отказ модели не мешает работе
+  quality: Q-6

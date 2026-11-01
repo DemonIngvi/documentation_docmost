@@ -1,5 +1,29 @@
 id: api
 title: Сервер приложения
-level: C2
+owner: команда-ядра
+lifecycle: planned
+criticality: high
+system: vektor
 responsibility: REST API и модули предметной области
 tech: NestJS 12.3.2
+functions:
+- project-manage
+- team-role-manage
+- user-auth
+- work-item-manage
+- bug-manage
+- request-handle
+- workflow-configure
+- custom-field-configure
+- release-plan
+- team-iteration-plan
+- velocity-count
+- board-move
+- list-filter
+- visual-encode
+- roadmap-show
+- dashboard-build
+- rest-api
+- webhook-subscribe
+- ai-suggestion-apply
+- model-connect

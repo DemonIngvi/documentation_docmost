@@ -1,0 +1,13 @@
+id: F-model-request
+title: Запрос к модели
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: worker
+to: model-provider
+objects:
+- ai-task
+- work-item
+trigger: задача в очереди
+flow_type: query
+over: I-model

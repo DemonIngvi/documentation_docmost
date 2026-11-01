@@ -1,0 +1,6 @@
+id: model-provider
+title: Поставщик модели
+owner: заказчик
+lifecycle: planned
+criticality: medium
+kind: external

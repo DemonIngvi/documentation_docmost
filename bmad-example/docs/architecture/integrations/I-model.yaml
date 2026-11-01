@@ -1,0 +1,14 @@
+id: I-model
+title: Запросы к языковой модели
+owner: команда-ядра
+lifecycle: planned
+criticality: medium
+from: worker
+to: model-provider
+purpose: Запросы к языковой модели
+integration_type: sync-api
+protocol: HTTPS, JSON
+auth: ключ из Model Connection
+timeout: 60 с
+retry: два повтора
+idempotent: false
